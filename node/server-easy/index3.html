@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Hello
+    </h1>
+    <br />
+    <br />
+    <ul id="list"></ul>
+    <br />
+    <br />
+    <input id="fruit" type="text" placeholder="Fruit" />
+    <button id="add">Add</button>
+    <script>
+        async function loadFruits() {
+            let response = await fetch("http://localhost:3000/fruit");
+            let fruit = await response.json();
+            const list = document.getElementById("list");
+            list.innerHTML = "";
+            fruit.forEach(fruit => {
+                const li = document.createElement("li");
+                li.textContent = fruit;
+                list.appendChild(li);
+            });
+        }
+
+        document.getElementById("add").onclick = async () => {
+            let input = document.getElementById("fruit");
+            let fruit = input.value;
+            await fetch("http://localhost:3000/add", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({fruit}),
+            });
+            input.value = "";
+            await loadFruits();
+        }
+
+        loadFruits();
+    </script>
+</body>
+</html>
