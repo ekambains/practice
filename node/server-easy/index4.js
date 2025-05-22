@@ -47,7 +47,7 @@ function getUsers() {
                     return [4 /*yield*/, db_js_1.client.connect()];
                 case 1:
                     _a.sent();
-                    return [4 /*yield*/, db_js_1.client.query("SELECT * FROM users")];
+                    return [4 /*yield*/, db_js_1.client.query("CREATE TABLE IF NOT EXISTS blogs (\n                                        id SERIAL PRIMARY KEY,\n                                        title TEXT NOT NULL,\n                                        content TEXT NOT NULL,\n                                        author TEXT NOT NULL,\n                                        createdAt TIMESTAMPTZ NOT NULL DEFAULT NOW(),\n                                        updatedAt TIMESTAMPTZ NOT NULL DEFAULT NOW()\n                                        )")];
                 case 2:
                     res = _a.sent();
                     console.log(res.rows);
