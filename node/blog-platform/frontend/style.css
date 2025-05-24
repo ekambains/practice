@@ -3,12 +3,18 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 40px;
+    gap: 25px;
 }
 
 #list{
     display: flex;
     flex-direction: column;
+    gap: 10px;
+    width: 50vw;
+}
+
+.newBlog{
+    display: flex;
+    flex-direction: column;
     gap: 20px;
-    width: 70vw;
 }
