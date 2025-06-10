@@ -1,12 +1,10 @@
-import BgTiltedLines1 from "./components/BgTiltedLines1"
-
+import AceternityNav from "./components/AceternityNav"
 
 function App() {
 
   return (
-    <div className="h-[100vh] w-full flex justify-center items-center">
-      <BgTiltedLines1 />
-        <h1 className="text-black text-7xl font-bold">How's the Background?</h1>  
+    <div className="h-[100vh] w-full flex justify-center items-center bg-black text-white">
+        <AceternityNav />
     </div>
   )
 }
